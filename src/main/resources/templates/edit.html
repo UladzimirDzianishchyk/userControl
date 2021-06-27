@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<form th:action="@{'/user/' + ${user.id} +'/edit'}" th:object="${user}" method="post">
+     <p th:text="${id}"></p>
+    <p><input type="text" th:field="*{userName}" placeholder="*{userName}"/></p>
+    <p><input type="text" th:field="*{firstName}" placeholder="*{firstName}"/></p>
+    <p><input type="text" th:field="*{lastName}" placeholder="*{lastName}"/></p>
+    <p><select th:field="*{role}">
+        <option th:value="'USER'" th:text="User"></option>
+        <option th:value="'ADMIN'" th:text="Admin"></option>
+    </select></p>
+    <p th:text="${user.getCreatedAt()}"></p>
+
+     <p><button type="submit">Edit user</button>
+ </form>
+ </body>
+ </html>
